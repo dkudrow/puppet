@@ -20,11 +20,13 @@ class dotfiles {
 		owner  => "${user}",
 	}
 
-	file { $pathogen_plugins :
-		path    => "${home}/.vim/bundle/${name}",
-		source  => "puppet:///modules/dotfiles/${name}",
-		recurse => 'true',
+	$vim_plugins = {
+		'nerdtree'          => { 'url' => 'https://github.com/scrooloose/nerdtree.git' },
+		'nerdcommenter'     => { 'url' => 'https://github.com/scrooloose/nerdcommenter.git' },
+		'puppet-syntax-vim' => { 'url' => 'https://github.com/puppetlabs/puppet-syntax-vim.git' }
 	}
+
+	create_resources(vim_plugin, $vim_plugins)
 
 	# zsh
 	dotfile { '.zshrc' :
