@@ -288,7 +288,7 @@ if !exists('autocommands_loaded')
 		\ retab
 
 	" Ruby
-	autocmd FileType ruby,eruby
+	autocmd FileType ruby,eruby,puppet
 		\ call SetTab(2) |
 		\ set expandtab |
 		\ retab
