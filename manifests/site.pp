@@ -4,11 +4,10 @@ $user = 'dkudrow'
 $home = "/home/$user"
 
 node 'common' {
-	include packages
-	include dotfiles
+  include packages
+  include dotfiles
 }
 
 node 'chrubuntu' inherits 'common' {
-	include c720
-	include kde
+  include c720
 }
